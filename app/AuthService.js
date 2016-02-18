@@ -1,8 +1,23 @@
 var buffer = require('buffer');
 var AsyncStorage = require('react-native').AsyncStorage;
 
+const authKey = 'auth';
+const userKey = 'user';
 
 class AuthService {
+
+  getAuthInfo(cb) {
+    AsyncStorage.multiGet([authKey, userKey], (err, val)=> {
+      if (err) {
+        return cb(err);
+      }
+
+      if (!val) {
+        return cb();
+      }
+    });
+  }
+
   login (creds, cb) {
 
     var b = buffer.Buffer(creds.username + ':' + creds.password);
