@@ -3,23 +3,42 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
+
+var React = require('react-native');
+
+var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} = React;
 
 var Login = require('./app/Login');
 
-class GithubBrowser extends Component {
-  render() {
-    return (
-      <Login />
-    );
+var GithubBrowser = React.createClass ({
+  render: function() {
+    if(this.state.isLoggedIn) {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.welcome}>You have been logged in.</Text>
+        </View>
+      );
+    } else {
+      return (
+        <Login onLogin={this.onLogin}></Login>
+      )
+    }
+  },
+  onLogin: function() {
+    this.setState({isLoggedIn: true});
+  },
+  getInitialState: function() {
+    return {
+      isLoggedIn: false
+    }
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
