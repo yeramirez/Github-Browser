@@ -3,23 +3,29 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
+
+var React = require('react-native');
+
+var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} = React;
 
 var Login = require('./app/Login');
 
-class GithubBrowser extends Component {
+var GithubBrowser = React.createClass ({
   render() {
     return (
-      <Login />
+      <Login onLogin={this.onLogin} />
     );
+  },
+  onLogin: function() {
+    console.log('can login, successfully showing different view.')
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {

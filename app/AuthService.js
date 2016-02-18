@@ -4,7 +4,7 @@ var buffer = require('buffer');
 class AuthService {
   login (creds, cb) {
 
-    var b = buffer.Buffer(this.state.username + ':' + this.state.password);
+    var b = buffer.Buffer(creds.username + ':' + creds.password);
     var encodedAuth = b.toString('base64');
 
     fetch('https://api.github.com/user', {
