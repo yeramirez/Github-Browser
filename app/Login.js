@@ -116,7 +116,7 @@ var styles = StyleSheet.create ({
     position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: "#8C2DFF",
+    backgroundColor: "#8C62FF",
     width: 500
   },
   userPic: {
