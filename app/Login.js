@@ -2,6 +2,8 @@
 
 var React = require('react-native');
 var buffer = require('buffer');
+var Firebase = require('firebase');
+
 
 var {
   AppRegistry,
@@ -14,6 +16,13 @@ var {
   Component,
   ActivityIndicatorIOS
 } = React;
+
+var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
+
+myFirebaseRef.child("users/message").on("value", function(snapshot) {
+  alert(snapshot.val());  // Alerts our message of "Hello"
+});
+
 
 class Login extends Component {
 
@@ -43,19 +52,19 @@ class Login extends Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.header} />
         <Image style={styles.logo}
-        source={require('./images/octocat.png')} />
-        <Text style={styles.heading}>
-        Github Browser
-        </Text>
+        source={require('./images/GeminiLogo.png')} />
+        <Image style={styles.userPic}
+        source={require('./images/user-01.png')} />
         <TextInput
           onChangeText={(text) => this.setState({username: text})}
           style={styles.input}
-          placeholder="Github Username" />
+          placeholder="User ID" />
         <TextInput
           onChangeText={(text) => this.setState({password: text})}
           style={styles.input}
-          placeholder="Github Password"
+          placeholder="Password"
           secureTextEntry={true} />
         <TouchableHighlight
           onPress= {this.onLoginPressed.bind(this)}
@@ -72,6 +81,7 @@ class Login extends Component {
       </View>
     );
   }
+
 
   onLoginPressed () {
     console.log('Attempting to login using username: ' + this.state.username);
@@ -101,13 +111,28 @@ var styles = StyleSheet.create ({
     alignItems: 'center',
     padding: 10
   },
+  header: {
+    height: 30,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    backgroundColor: "purple",
+    width: 500
+  },
+  userPic: {
+    marginTop: 30,
+    paddingBottom: 15,
+    height: 130,
+    width: 150
+  },
   logo: {
-    width: 66,
-    height: 55
+    width: 275,
+    height: 75
   },
   heading: {
     fontSize: 30,
-    marginTop: 10
+    marginTop: 10,
+    fontFamily: 'Helvetica'
   },
   input: {
     height: 50,
@@ -115,19 +140,22 @@ var styles = StyleSheet.create ({
     padding: 4,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: '#48bbec'
+    borderColor: '#c3c3c3'
   },
   button: {
     height: 50,
-    backgroundColor: '#48BBEC',
-    alignSelf: 'stretch',
+    backgroundColor: '#8bc73f',
+    width: 120,
     marginTop: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignSelf: 'flex-end'
   },
   buttonText: {
     fontSize: 22,
     color: '#FFF',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    fontFamily: 'Helvetica Neue',
+    fontWeight: 'bold'
   },
   loader: {
     marginTop: 20

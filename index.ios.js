@@ -59,4 +59,6 @@ const styles = StyleSheet.create({
   },
 });
 
+//Icon credit: To Uyen
+
 AppRegistry.registerComponent('GithubBrowser', () => GithubBrowser);

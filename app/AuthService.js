@@ -1,6 +1,7 @@
 var buffer = require('buffer');
 var AsyncStorage = require('react-native').AsyncStorage;
 
+
 const authKey = 'auth';
 const userKey = 'user';
 
