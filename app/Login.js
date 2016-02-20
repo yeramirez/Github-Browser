@@ -60,7 +60,7 @@ class Login extends Component {
         <TextInput
           onChangeText={(text) => this.setState({username: text})}
           style={styles.input}
-          placeholder="User ID" />
+          placeholder="Employee ID" />
         <TextInput
           onChangeText={(text) => this.setState({password: text})}
           style={styles.input}
