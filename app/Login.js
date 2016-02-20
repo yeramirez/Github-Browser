@@ -140,7 +140,8 @@ var styles = StyleSheet.create ({
     padding: 4,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: '#c3c3c3'
+    borderColor: '#c3c3c3',
+    backgroundColor: '#CCC9CA'
   },
   button: {
     height: 50,
