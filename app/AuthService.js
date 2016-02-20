@@ -1,6 +1,6 @@
 var buffer = require('buffer');
 var AsyncStorage = require('react-native').AsyncStorage;
-
+var _ = require('lodash');
 
 const authKey = 'auth';
 const userKey = 'user';
@@ -16,6 +16,21 @@ class AuthService {
       if (!val) {
         return cb();
       }
+
+      var zippedObj = _.zipObject(val);
+
+      if(!zippedObj[authKey]) {
+        return cb();
+      }
+
+      var authInfo = {
+        header: {
+          Authorization: 'Basic' + zippedObj[authKey]
+        },
+        user: JSON.parse(zippedObj[userKey])
+      }
+
+      return cb(null, authInfo);
     });
   }
 

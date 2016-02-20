@@ -19,9 +19,9 @@ var {
 
 var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
 
-myFirebaseRef.child("users/message").on("value", function(snapshot) {
-  alert(snapshot.val());  // Alerts our message of "Hello"
-});
+// myFirebaseRef.child("users/message").on("value", function(snapshot) {
+//   alert(snapshot.val());  // Alerts our message of "Hello"
+// });
 
 
 class Login extends Component {

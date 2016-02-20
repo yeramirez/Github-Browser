@@ -11,17 +11,39 @@ var {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
+  ActivityIndicatorIOS
 } = React;
 
 var Login = require('./app/Login');
+var AuthService = require('./app/AuthService');
 
 var GithubBrowser = React.createClass ({
+  componentDidMount: function () {
+    AuthService.getAuthInfo((err, authInfo)=> {
+      this.setState({
+        checkingAuth: false,
+        isLoggedIn: authInfo != null
+      });
+    });
+  },
+
   render: function() {
+    if(this.state.checkingAuth){
+      return (
+        <View>
+          <ActivityIndicatorIOS
+            animating={true}
+            size="large"
+            style={styles.loader} />
+        </View>
+      )
+    }
+
     if(this.state.isLoggedIn) {
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>You have been logged in.</Text>
+          <Text style={styles.welcome}>You have been logged in. Hello {this.state.username}</Text>
         </View>
       );
     } else {
@@ -35,7 +57,8 @@ var GithubBrowser = React.createClass ({
   },
   getInitialState: function() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
+      checkingAuth: true
     }
   }
 });
@@ -51,6 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  loader: {
+    marginTop: 300
   },
   instructions: {
     textAlign: 'center',
