@@ -4,6 +4,7 @@ var React = require('react-native');
 var buffer = require('buffer');
 var Firebase = require('firebase');
 
+var Dashboard = require('./Dashboard');
 
 var {
   AppRegistry,
@@ -12,6 +13,7 @@ var {
   View,
   Image,
   TextInput,
+  navigator,
   TouchableHighlight,
   Component,
   ActivityIndicatorIOS
@@ -25,6 +27,14 @@ myFirebaseRef.child("users/message").on("value", function(snapshot) {
 
 
 class Login extends Component {
+
+  loginSuccess(){
+    this.props.navigator.push({
+      title:'Dashboard',
+      component: Dashboard,
+      passProps: ''
+    })
+  }
 
   constructor(props) {
     super(props);
@@ -68,7 +78,7 @@ class Login extends Component {
           secureTextEntry={true} />
         <TouchableHighlight
           onPress= {this.onLoginPressed.bind(this)}
-          style={styles.button}>
+          style={styles.button} >
           <Text style={styles.buttonText}>
             Login
           </Text>
@@ -98,6 +108,7 @@ class Login extends Component {
 
       if(results.success && this.props.onLogin) {
         this.props.onLogin();
+        this.loginSuccess();
       }
     });
   }

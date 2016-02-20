@@ -9,6 +9,7 @@ var React = require('react-native');
 var {
   AppRegistry,
   Component,
+  NavigatorIOS,
   StyleSheet,
   Text,
   View
@@ -26,7 +27,7 @@ var GithubBrowser = React.createClass ({
       );
     } else {
       return (
-        <Login onLogin={this.onLogin}></Login>
+        <Login onLogin={this.onLogin} navigator={this.props.navigator}></Login>
       )
     }
   },
