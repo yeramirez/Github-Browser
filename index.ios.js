@@ -18,6 +18,7 @@ var {
 
 var Login = require('./app/Login');
 var AuthService = require('./app/AuthService');
+var Dashboard = require('./app/Dashboard');
 
 class geminiApp extends Component {
   render() {

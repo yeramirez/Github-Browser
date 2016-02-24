@@ -53,13 +53,13 @@ class Login extends Component {
           placeholder="Password"
           secureTextEntry={true} />
         <TouchableHighlight
-          onPress= {this.onLoginPressed.bind(this)}
+          onPress={()=> this.onLoginPressed()}
           style={styles.button}>
           <Text style={styles.buttonText}>
             Login
           </Text>
         </TouchableHighlight>
-        
+
         <ActivityIndicatorIOS
           animating={this.state.showProgress}
           size="large"
@@ -70,22 +70,7 @@ class Login extends Component {
 
 
   onLoginPressed () {
-    console.log('Attempting to login using username: ' + this.state.username);
-    this.setState({showProgress: true});
-
-    var authService = require('./AuthService');
-    authService.login({
-      username: this.state.username,
-      password: this.state.password
-    }, (results)=> {
-      this.setState(Object.assign({
-        showProgress: false
-      }, results));
-
-      if(results.success && this.props.onLogin) {
-        this.props.onLogin();
-      }
-    });
+    console.log("HELLO YANELY");
   }
 }
 

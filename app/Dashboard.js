@@ -19,7 +19,6 @@ class Dashboard extends Component {
 	render () {
 
 		return (
-
 			<View style={styles.container}>
 				<Text>Welcome, Employee</Text>
 
