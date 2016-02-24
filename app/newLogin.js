@@ -18,23 +18,7 @@ var {
   ActivityIndicatorIOS
 } = React;
 
-var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
-
-// myFirebaseRef.child("users/message").on("value", function(snapshot) {
-//   alert(snapshot.val());  // Alerts our message of "Hello"
-// });
-
-
 class Login extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showProgress: false
-    }
-  }
-
   render () {
     return (
       <View style={styles.container}>
@@ -59,7 +43,7 @@ class Login extends Component {
             Login
           </Text>
         </TouchableHighlight>
-        
+        {errorCtrl}
         <ActivityIndicatorIOS
           animating={this.state.showProgress}
           size="large"
@@ -70,22 +54,7 @@ class Login extends Component {
 
 
   onLoginPressed () {
-    console.log('Attempting to login using username: ' + this.state.username);
-    this.setState({showProgress: true});
-
-    var authService = require('./AuthService');
-    authService.login({
-      username: this.state.username,
-      password: this.state.password
-    }, (results)=> {
-      this.setState(Object.assign({
-        showProgress: false
-      }, results));
-
-      if(results.success && this.props.onLogin) {
-        this.props.onLogin();
-      }
-    });
+    console.log('hello!');
   }
 }
 

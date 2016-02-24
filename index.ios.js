@@ -12,56 +12,40 @@ var {
   StyleSheet,
   Text,
   View,
-  ActivityIndicatorIOS
+  ActivityIndicatorIOS,
+  Navigator,
 } = React;
 
 var Login = require('./app/Login');
 var AuthService = require('./app/AuthService');
 
-var GithubBrowser = React.createClass ({
-  componentDidMount: function () {
-    AuthService.getAuthInfo((err, authInfo)=> {
-      this.setState({
-        checkingAuth: false,
-        isLoggedIn: authInfo != null
-      });
-    });
-  },
+class geminiApp extends Component {
+  render() {
+    return (
+      <Navigator
+        initialRoute={{
+          id: 'home'
+        }}
+        renderScene={this.navigatorRenderScene}
+      />
+    );
+  }
 
-  render: function() {
-    if(this.state.checkingAuth){
-      return (
-        <View>
-          <ActivityIndicatorIOS
-            animating={true}
-            size="large"
-            style={styles.loader} />
-        </View>
-      )
-    }
+  navigatorRenderScene(route, navigator) {
+    navigator = navigator;
 
-    if(this.state.isLoggedIn) {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>You have been logged in. Hello {this.state.username}</Text>
-        </View>
-      );
-    } else {
-      return (
-        <Login onLogin={this.onLogin}></Login>
-      )
-    }
-  },
-  onLogin: function() {
-    this.setState({isLoggedIn: true});
-  },
-  getInitialState: function() {
-    return {
-      isLoggedIn: false,
-      checkingAuth: true
+    switch (route.id) {
+      case 'home':
+        return (
+          <Login navigator={navigator} title='Home' passProps={route.passProps}></Login>
+        );
+      case 'dashboard':
+        return (
+          <Dashboard navigator={navigator} title='Dashboard' passProps={route.passProps}></Dashboard>
+        );
     }
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -87,4 +71,4 @@ const styles = StyleSheet.create({
 
 //Icon credit: To Uyen
 
-AppRegistry.registerComponent('GithubBrowser', () => GithubBrowser);
+AppRegistry.registerComponent('geminiApp', () => geminiApp);

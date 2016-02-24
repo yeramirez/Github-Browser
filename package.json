@@ -1,5 +1,5 @@
 {
-  "name": "GithubBrowser",
+  "name": "geminiApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,5 +11,18 @@
     "lodash": "^4.5.0",
     "react-native": "^0.19.0",
     "react-native-svg": "^0.2.1"
-  }
+  },
+  "main": "index.ios.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeramirez/mdd-react-native.git"
+  },
+  "author": "Yanely Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeramirez/mdd-react-native/issues"
+  },
+  "homepage": "https://github.com/yeramirez/mdd-react-native#readme",
+  "description": ""
 }

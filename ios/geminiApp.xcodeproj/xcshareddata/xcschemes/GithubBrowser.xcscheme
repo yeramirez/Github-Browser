@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "GithubBrowser.app"
-               BlueprintName = "GithubBrowser"
-               ReferencedContainer = "container:GithubBrowser.xcodeproj">
+               BuildableName = "geminiApp.app"
+               BlueprintName = "geminiApp"
+               ReferencedContainer = "container:geminiApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GithubBrowserTests.xctest"
-               BlueprintName = "GithubBrowserTests"
-               ReferencedContainer = "container:GithubBrowser.xcodeproj">
+               BuildableName = "geminiAppTests.xctest"
+               BlueprintName = "geminiAppTests"
+               ReferencedContainer = "container:geminiApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GithubBrowserTests.xctest"
-               BlueprintName = "GithubBrowserTests"
-               ReferencedContainer = "container:GithubBrowser.xcodeproj">
+               BuildableName = "geminiAppTests.xctest"
+               BlueprintName = "geminiAppTests"
+               ReferencedContainer = "container:geminiApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GithubBrowser.app"
-            BlueprintName = "GithubBrowser"
-            ReferencedContainer = "container:GithubBrowser.xcodeproj">
+            BuildableName = "geminiApp.app"
+            BlueprintName = "geminiApp"
+            ReferencedContainer = "container:geminiApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GithubBrowser.app"
-            BlueprintName = "GithubBrowser"
-            ReferencedContainer = "container:GithubBrowser.xcodeproj">
+            BuildableName = "geminiApp.app"
+            BlueprintName = "geminiApp"
+            ReferencedContainer = "container:geminiApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GithubBrowser.app"
-            BlueprintName = "GithubBrowser"
-            ReferencedContainer = "container:GithubBrowser.xcodeproj">
+            BuildableName = "geminiApp.app"
+            BlueprintName = "geminiApp"
+            ReferencedContainer = "container:geminiApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

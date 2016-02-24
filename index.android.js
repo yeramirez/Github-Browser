@@ -11,7 +11,7 @@ import React, {
   View
 } from 'react-native';
 
-class GithubBrowser extends Component {
+class geminiApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('GithubBrowser', () => GithubBrowser);
+AppRegistry.registerComponent('geminiApp', () => geminiApp);
