@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
 
 var {
   AppRegistry,
@@ -36,6 +37,10 @@ class Dashboard extends Component {
         <TouchableHighlight onPress={()=> this.allOrders()} style={styles.dashboardButton}>
         	<Text style={styles.buttonText}>All Orders</Text>
         </TouchableHighlight>
+
+        <TouchableHighlight onPress={()=> this.logoutButton()} style={styles.dashboardButton}>
+        	<Text style={styles.buttonText}>Logout</Text>
+        </TouchableHighlight>
 			</View>
 		);
 	}
@@ -43,6 +48,10 @@ class Dashboard extends Component {
   pendingOrders () {
     this.props.navigator.push({
       id: 'pending'
+    });
+
+    myFirebaseRef.child("unit1/id").on("value", function(snapshot) {
+     console.log(snapshot.val());  // Alerts our message of "Hello"
     });
   }
 
@@ -56,6 +65,10 @@ class Dashboard extends Component {
     this.props.navigator.push({
       id: 'allOrders'
     });
+  }
+
+  logoutButton () {
+    this.props.navigator.push({id: 'home'})
   }
 
 }
@@ -93,7 +106,6 @@ const styles = StyleSheet.create ({
     fontFamily: 'Helvetica Neue',
     fontWeight: 'bold'
   }
-
 });
 
 module.exports = Dashboard;

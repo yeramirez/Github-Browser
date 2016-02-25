@@ -7,19 +7,20 @@ var {
   Text,
   View,
   TouchableHighlight,
-  Component,
-
+  Component
 } = React;
 
-class pendingOrder extends Component {
+var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
+
+myFirebaseRef.child("unit1/id").on("value", function(snapshot) {
+ console.log(snapshot.val());  // Alerts our message of "Hello"
+});
+
+class orderView extends Component {
   render () {
 		return (
 			<View style={styles.container}>
-				<Text>Pending Orders</Text>
-        <TouchableHighlight onPress={()=> this.backButton()} style={styles.backButton}>
-          <Text style={styles.buttonText}>Go Back</Text>
-        </TouchableHighlight>
-        
+				<Text>Pending</Text>
       </View>
 		);
 	}
@@ -29,6 +30,8 @@ class pendingOrder extends Component {
   }
 }
 
+
+
 const styles = StyleSheet.create ({
 	container: {
 		backgroundColor: "#f9f9f9",
@@ -36,6 +39,7 @@ const styles = StyleSheet.create ({
     paddingTop: 40,
     alignItems: 'center',
     padding: 10
+
 	},
   backButton: {
   	height: 40,
@@ -51,7 +55,6 @@ const styles = StyleSheet.create ({
     fontWeight: 'bold',
     padding: 10
   }
-
 });
 
-module.exports = pendingOrder;
+module.exports = allOrders;
