@@ -70,7 +70,9 @@ class Login extends Component {
 
 
   onLoginPressed () {
-    console.log("HELLO YANELY");
+    this.props.navigator.push({
+      id: 'dashboard'
+    });
   }
 }
 

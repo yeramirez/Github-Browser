@@ -25,20 +25,38 @@ class Dashboard extends Component {
         <Image style={styles.userPic}
         source={require('./images/user-01.png')} />
 
-        <TouchableHighlight style={styles.dashboardButton}>
+        <TouchableHighlight onPress={()=> this.pendingOrders()} style={styles.dashboardButton}>
         	<Text>Pending Orders</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.dashboardButton}>
+        <TouchableHighlight onPress={()=> this.completedOrders()} style={styles.dashboardButton}>
         	<Text>Completed Orders</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.dashboardButton}>
+        <TouchableHighlight onPress={()=> this.allOrders()} style={styles.dashboardButton}>
         	<Text>All Orders</Text>
         </TouchableHighlight>
 			</View>
 		);
 	}
+
+  pendingOrders () {
+    this.props.navigator.push({
+      id: 'pending'
+    });
+  }
+
+  completedOrders () {
+    this.props.navigator.push({
+      id: 'completed'
+    });
+  }
+
+  allOrders () {
+    this.props.navigator.push({
+      id: 'allOrders'
+    });
+  }
 
 }
 
@@ -60,12 +78,13 @@ const styles = StyleSheet.create ({
   },
 
   dashboardButton: {
-  	flex: 1,
-  	height: 100,
-  	justifyContent: 'center',
-  	backgroundColor: '#CCC9CA'
-
-  },
+    height: 50,
+    backgroundColor: '#8bc73f',
+    width: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignSelf: 'flex-end'
+  }
 
 });
 
