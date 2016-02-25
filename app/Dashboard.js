@@ -26,15 +26,15 @@ class Dashboard extends Component {
         source={require('./images/user-01.png')} />
 
         <TouchableHighlight onPress={()=> this.pendingOrders()} style={styles.dashboardButton}>
-        	<Text>Pending Orders</Text>
+        	<Text style={styles.buttonText}>Pending Orders</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={()=> this.completedOrders()} style={styles.dashboardButton}>
-        	<Text>Completed Orders</Text>
+        	<Text style={styles.buttonText}>Completed Orders</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={()=> this.allOrders()} style={styles.dashboardButton}>
-        	<Text>All Orders</Text>
+        	<Text style={styles.buttonText}>All Orders</Text>
         </TouchableHighlight>
 			</View>
 		);
@@ -83,7 +83,15 @@ const styles = StyleSheet.create ({
     width: 120,
     marginTop: 10,
     justifyContent: 'center',
-    alignSelf: 'flex-end'
+    flexDirection: 'row',
+    width: 300
+  },
+  buttonText: {
+    fontSize: 22,
+    color: '#FFF',
+    alignSelf: 'center',
+    fontFamily: 'Helvetica Neue',
+    fontWeight: 'bold'
   }
 
 });

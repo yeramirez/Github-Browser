@@ -16,7 +16,7 @@ class pendingOrder extends Component {
 			<View style={styles.container}>
 				<Text>Pending Orders</Text>
         <TouchableHighlight onPress={()=> this.backButton()} style={styles.backButton}>
-          <Text>Go Back</Text>
+          <Text style={styles.buttonText}>Go Back</Text>
         </TouchableHighlight>
       </View>
 		);
@@ -34,16 +34,21 @@ const styles = StyleSheet.create ({
     paddingTop: 40,
     alignItems: 'center',
     padding: 10
-
 	},
-
   backButton: {
-  	flex: 1,
   	height: 40,
+    alignSelf: 'flex-start',
   	justifyContent: 'center',
-  	backgroundColor: '#CCC9CA'
-
+  	backgroundColor: '#40B0FF'
   },
+  buttonText: {
+    fontSize: 22,
+    color: '#FFF',
+    alignSelf: 'center',
+    fontFamily: 'Helvetica Neue',
+    fontWeight: 'bold',
+    padding: 10
+  }
 
 });
 

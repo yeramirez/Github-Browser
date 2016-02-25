@@ -16,7 +16,7 @@ class allOrders extends Component {
 			<View style={styles.container}>
 				<Text>All Orders</Text>
         <TouchableHighlight onPress={()=> this.backButton()} style={styles.backButton}>
-          <Text>Go Back</Text>
+          <Text style={styles.buttonText}>Go Back</Text>
         </TouchableHighlight>
       </View>
 		);
@@ -36,15 +36,20 @@ const styles = StyleSheet.create ({
     padding: 10
 
 	},
-
   backButton: {
-  	flex: 1,
   	height: 40,
+    alignSelf: 'flex-start',
   	justifyContent: 'center',
-  	backgroundColor: '#CCC9CA'
-
+  	backgroundColor: '#40B0FF'
+  },
+  buttonText: {
+    fontSize: 22,
+    color: '#FFF',
+    alignSelf: 'center',
+    fontFamily: 'Helvetica Neue',
+    fontWeight: 'bold',
+    padding: 10
   }
-
 });
 
 module.exports = allOrders;
