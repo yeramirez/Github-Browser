@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react-native');
-var myFirebaseRef = new Firebase("https://geminiapp.firebaseio.com/");
 
 var {
   AppRegistry,
@@ -38,7 +37,7 @@ class Dashboard extends Component {
         	<Text style={styles.buttonText}>All Orders</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={()=> this.logoutButton()} style={styles.dashboardButton}>
+        <TouchableHighlight onPress={()=> this.logoutButton()} style={styles.logoutButton}>
         	<Text style={styles.buttonText}>Logout</Text>
         </TouchableHighlight>
 			</View>
@@ -48,10 +47,6 @@ class Dashboard extends Component {
   pendingOrders () {
     this.props.navigator.push({
       id: 'pending'
-    });
-
-    myFirebaseRef.child("unit1/id").on("value", function(snapshot) {
-     console.log(snapshot.val());  // Alerts our message of "Hello"
     });
   }
 
@@ -68,7 +63,7 @@ class Dashboard extends Component {
   }
 
   logoutButton () {
-    this.props.navigator.push({id: 'home'})
+    this.props.navigator.popToTop()
   }
 
 }
@@ -99,6 +94,17 @@ const styles = StyleSheet.create ({
     flexDirection: 'row',
     width: 300
   },
+
+  logoutButton: {
+    height: 50,
+    backgroundColor: '#FF2E2B',
+    width: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 300
+  },
+
   buttonText: {
     fontSize: 22,
     color: '#FFF',
