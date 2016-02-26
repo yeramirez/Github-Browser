@@ -12,47 +12,22 @@ var {
   ListView
 } = React;
 
+var units = [
+  {
+    id: 100,
+    status: 'pending'
+  },
+];
+
 class pendingOrder extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      units: null,
-    };
-  }
 
-  componentDidMount() {
-    this.fetchUnits();
-  }
-
-  fetchUnits() {
-    var reqURL = 'https://raw.githubusercontent.com/yeramirez/mdd-react-native/master/data.json';
-
-    fetch (reqURL)
-
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          units: responseData.units,
-        });
-      })
-      .done();
-
-      console.log("This consoles it!!! " + this.state.units);
-  }
-
-  render () {
-    if (!this.state.units) {
-      return this.renderUnit();
-    }
-
-    var unit = this.state.units[1];
-    return this.renderUnit();
-	}
-
-  renderUnit(unit) {
+  render() {
+    var unit = units[0];
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>{unit.id}</Text>
+        <Text>{unit.id}</Text>
+        <Text>{unit.status}</Text>
+
       </View>
     );
   }
@@ -61,15 +36,6 @@ class pendingOrder extends Component {
     this.props.navigator.pop();
   }
 }
-
-// var units = [];
-//
-// var displayArray = function () {
-//   myFirebaseRef.child("units/id").on("value", function(snapshot) {
-//     units.push(snapshot.val());  // Alerts our message of "Hello"
-//   });
-// }
-
 
 const styles = StyleSheet.create ({
 	container: {
