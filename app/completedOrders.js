@@ -40,7 +40,7 @@ var completedOrders = React.createClass ( {
       </View>
       )
     }else{
-      alert('Your Data is coming');
+      console.log('Your Data is coming');
     }
   },
 
