@@ -10,7 +10,7 @@ var {
   Component
 } = React;
 
-var completedOrders = Reace.createClass ( {
+var completedOrders = React.createClass ( {
   getInitialState() {
 
       return{
@@ -67,9 +67,6 @@ var completedOrders = Reace.createClass ( {
 		);
 	}
 
-  backButton () {
-    this.props.navigator.pop();
-  }
 });
 
 const styles = StyleSheet.create ({
