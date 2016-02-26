@@ -67,9 +67,6 @@ var completedOrders = React.createClass ( {
 		);
 	}
 
-  backButton () {
-    this.props.navigator.pop();
-  }
 });
 
 const styles = StyleSheet.create ({
