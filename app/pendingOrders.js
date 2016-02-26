@@ -45,7 +45,7 @@ class pendingOrder extends Component {
       return this.renderUnit();
     }
 
-    var unit = this.state.units[0];
+    var unit = this.state.units[1];
     return this.renderUnit();
 	}
 
