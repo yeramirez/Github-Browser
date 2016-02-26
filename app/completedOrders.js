@@ -35,7 +35,7 @@ var completedOrders = React.createClass ( {
     return(
       <View>
         <Text  style={styles.unitText}>
-        Pending: {this.state.unitData.completed.sku}
+        Completed: {this.state.unitData.completed.sku}
         </Text>
       </View>
       )
