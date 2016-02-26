@@ -52,7 +52,7 @@ class pendingOrder extends Component {
   renderUnit(unit) {
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>{unit}</Text>
+          <Text style={styles.title}>{unit.id}</Text>
       </View>
     );
   }
