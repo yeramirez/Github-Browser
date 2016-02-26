@@ -10,7 +10,7 @@ var {
   Component
 } = React;
 
-var completedOrders = Reace.createClass ( {
+var completedOrders = React.createClass ( {
   getInitialState() {
 
       return{
