@@ -1,6 +1,10 @@
   {
-    "users": {
-      "firstname": "admin",
-      "lastname": "admin"
+    "units": {
+      "500": {
+        "status": "pending"
+      },
+      "501": {
+        "status": "completed"
+      }
     }
 }
